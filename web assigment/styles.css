@@ -1,0 +1,216 @@
+/* Reset & base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #eee;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    background-color: #121212; /* dark base */
+}
+
+/* Background slideshow container */
+.bg-slideshow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.bg-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.bg-slide.active {
+    opacity: 1;
+}
+
+/* Background overlay */
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(18, 18, 18, 0.6);
+    z-index: -1;
+}
+
+/* Slideshow images */
+body.home-page .bg-slide:nth-child(1) { background-image: url('img/home1.jpg'); }
+body.home-page .bg-slide:nth-child(2) { background-image: url('img/home2.jpg'); }
+body.home-page .bg-slide:nth-child(3) { background-image: url('img/home3.jpg'); }
+
+body.love-page .bg-slide:nth-child(1) { background-image: url('img/love1.jpg'); }
+body.love-page .bg-slide:nth-child(2) { background-image: url('img/love2.jpg'); }
+body.love-page .bg-slide:nth-child(3) { background-image: url('img/love3.jpg'); }
+
+body.philosophy-page .bg-slide:nth-child(1) { background-image: url('img/philosophy1.jpg'); }
+body.philosophy-page .bg-slide:nth-child(2) { background-image: url('img/philosophy2.jpg'); }
+body.philosophy-page .bg-slide:nth-child(3) { background-image: url('img/philosophy3.jpg'); }
+
+body.birthday-page .bg-slide:nth-child(1) { background-image: url('img/birthday1.jpg'); }
+body.birthday-page .bg-slide:nth-child(2) { background-image: url('img/birthday2.jpg'); }
+body.birthday-page .bg-slide:nth-child(3) { background-image: url('img/birthday3.jpg'); }
+
+body.religion-page .bg-slide:nth-child(1) { background-image: url('img/religion1.jpg'); }
+body.religion-page .bg-slide:nth-child(2) { background-image: url('img/religion2.jpg'); }
+body.religion-page .bg-slide:nth-child(3) { background-image: url('img/religion3.jpg'); }
+
+/* Slideshow animation */
+@keyframes slideshow {
+    0%, 33.33% { opacity: 1; }
+    33.34%, 100% { opacity: 0; }
+}
+
+.bg-slide:nth-child(1) { animation: slideshow 12s infinite; }
+.bg-slide:nth-child(2) { animation: slideshow 12s infinite 4s; }
+.bg-slide:nth-child(3) { animation: slideshow 12s infinite 8s; }
+
+/* Header */
+header {
+    background: rgba(30, 30, 30, 0.85);
+    backdrop-filter: blur(5px);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.7);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ccc;
+    font-weight: 500;
+    transition: 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+}
+
+nav a.active, nav a:hover {
+    background-color: rgba(102, 126, 234, 0.3);
+    color: #fff;
+}
+
+/* Main content */
+main {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: rgba(20, 20, 20, 0.85);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.7);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #fff;
+    font-size: 2.5rem;
+}
+
+.card {
+    background: rgba(35, 35, 35, 0.85);
+    margin: 2rem 0;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.6);
+    line-height: 1.8;
+    color: #ddd;
+}
+
+/* Forms */
+form {
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid #555;
+    background-color: #222;
+    color: #eee;
+    font-size: 1rem;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+button {
+    background: #667eea;
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #764ba2;
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background: #1a1a1a;
+    color: #ccc;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.footer-links a {
+    color: #ccc;
+    margin: 0 1rem;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #667eea;
+}
+
+.footer-text {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width:768px) {
+    nav ul { flex-direction: column; gap: 1rem; }
+    main { margin: 2rem 1rem; padding: 1.5rem; }
+    h1 { font-size: 2rem; }
+}
